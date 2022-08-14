@@ -1,0 +1,14 @@
+
+<div class="card" style="width:400px">
+    <img *ngIf="exibeImagem" class="card-img-top" [src]="urlImage" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title">{{nomeCard}}</h4>
+      <p class="card-text">{{descricaoCard}}</p>
+
+      <app-lista-certificados></app-lista-certificados>  
+      
+      <button (click)="exibirImage()" class="btn btn-primary"> Exibir</button>
+      <button (click)="ocultarImage()" class="btn btn-danger"> Ocultar</button>
+      
+    </div>
+</div>

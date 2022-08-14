@@ -1,0 +1,12 @@
+<div *ngFor="let certificacao of lista"> 
+
+
+    <div *ngIf="certificacao.year > 2010" class="alert alert-primary">
+        {{certificacao.year}} - {{certificacao.cert}}
+    </div>
+
+    <div *ngIf="certificacao.year < 2010" class="alert alert-danger">
+        {{certificacao.year}} - {{certificacao.cert}}
+    </div>
+    
+</div>
