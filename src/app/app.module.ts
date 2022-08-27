@@ -10,6 +10,10 @@ import { ListaCertificadosComponent } from './lista-certificados/lista-certifica
 import { ListarCarrosComponent } from './listar-carros/listar-carros.component';
 import { CadastroContatoFormComponent } from './cadastro-contato-form/cadastro-contato-form.component';
 import { CadastroContatoReativoComponent } from './cadastro-contato-reativo/cadastro-contato-reativo.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { ConteudoComponent } from './home/conteudo/conteudo.component';
+import { MenuComponent } from './home/menu/menu.component';
 
 
 @NgModule({
@@ -21,12 +25,16 @@ import { CadastroContatoReativoComponent } from './cadastro-contato-reativo/cada
     ListaCertificadosComponent,
     ListarCarrosComponent,
     CadastroContatoFormComponent,
-    CadastroContatoReativoComponent
+    CadastroContatoReativoComponent,
+    HomeComponent,
+    ConteudoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
