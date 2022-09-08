@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { RodapeComponent } from './rodape/rodape.component';
-import { ContadorComponent } from './contador/contador.component';
-import { CardPerfilComponent } from './card-perfil/card-perfil.component';
-import { ListaCertificadosComponent } from './lista-certificados/lista-certificados.component';
-import { ListarCarrosComponent } from './listar-carros/listar-carros.component';
-import { CadastroContatoFormComponent } from './cadastro-contato-form/cadastro-contato-form.component';
-import { CadastroContatoReativoComponent } from './cadastro-contato-reativo/cadastro-contato-reativo.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { ConteudoComponent } from './home/conteudo/conteudo.component';
-import { MenuComponent } from './home/menu/menu.component';
+import { CadastroContatoReativoComponent } from './view/cadastro-contato-reativo/cadastro-contato-reativo.component';
+import { ListaCertificadosComponent } from './view/lista-certificados/lista-certificados.component';
+import { ListaFilmeComponent } from './view/lista-filme/lista-filme.component';
+import { RodapeComponent } from './view/rodape/rodape.component';
+import { ContadorComponent } from './view/contador/contador.component';
+import { CardPerfilComponent } from './view/card-perfil/card-perfil.component';
+import { ListarCarrosComponent } from './view/listar-carros/listar-carros.component';
+import { CadastroContatoFormComponent } from './view/cadastro-contato-template-form/cadastro-contato-form.component';
+import { UsuarioService } from './service/usuario.service';
+import { UserFormComponent } from './view/user/user-form/user-form.component';
+import { UserListComponent } from './view/user/user-list/user-list.component';
 
 
 @NgModule({
@@ -26,17 +28,18 @@ import { MenuComponent } from './home/menu/menu.component';
     ListarCarrosComponent,
     CadastroContatoFormComponent,
     CadastroContatoReativoComponent,
-    HomeComponent,
-    ConteudoComponent,
-    MenuComponent
+    UserFormComponent,
+    UserListComponent,
+    ListaFilmeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
