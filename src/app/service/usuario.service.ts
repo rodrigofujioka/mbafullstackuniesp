@@ -27,7 +27,7 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.usuarioApi, usuario)
     .pipe(
       retry(5),
-    );;
+    );
   }
 }
 
