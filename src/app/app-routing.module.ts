@@ -8,14 +8,15 @@ import { ContadorComponent } from './view/contador/contador.component';
 import { CadastroContatoFormComponent } from './view/cadastro-contato-template-form/cadastro-contato-form.component';
 import { UserListComponent } from './view/user/user-list/user-list.component';
 import { UserFormComponent } from './view/user/user-form/user-form.component';
+import { AdminGuard } from './admin.guard';
 
 const appRoutes : Routes = [
 
-  {path: 'contador' , component: ContadorComponent},
-  {path: 'cadastro-contato' , component: CadastroContatoFormComponent},
-  {path: 'lista-filme' , component: ListaFilmeComponent},
+  { path: 'contador' , component: ContadorComponent, canActivate:[AdminGuard]},
+  { path: 'cadastro-contato' , component: CadastroContatoFormComponent},
+  { path: 'lista-filme' , component: ListaFilmeComponent},
   { path: 'usuarios', component: UserListComponent },
-  { path: 'incluirUsuario', component: UserFormComponent }
+  { path: 'incluirUsuario', component: UserFormComponent, canActivate:[AdminGuard] }
 
 ]
 

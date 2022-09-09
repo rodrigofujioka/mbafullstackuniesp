@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-import { delay, Observable, retry } from 'rxjs';
+import { catchError, delay, Observable, retry, throwError } from 'rxjs';
 import { Usuario } from '../model/usuario';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(this.usuarioApi)
     .pipe(
       retry(5),
-      delay(10000)
+      catchError(this.handleError)
     );
   }
 
@@ -27,7 +27,30 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.usuarioApi, usuario)
     .pipe(
       retry(5),
+      catchError(this.handleError)
     );
   }
+
+  handleError(error: HttpErrorResponse){
+  
+    let errorMessage = '' ;
+
+    if(error.error instanceof ErrorEvent){
+      errorMessage = error.error.message;
+      console.log(errorMessage, 'Erro do lado do Cliente');
+      window.alert(errorMessage);
+    }else{
+      errorMessage = `Código do erro ${error.status}, ` + `menssagem: ${error.message}`;
+      console.log(errorMessage, 'Erro do lado do servisor');
+      window.alert(errorMessage); 
+    }
+
+    console.log(errorMessage);
+    return throwError(errorMessage);
+
+  }
+
 }
+
+
 
